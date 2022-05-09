@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvaShop", "EvaShop\EvaShop.csproj", "{900D9202-0EA0-4C79-A102-64FB49B31A1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{900D9202-0EA0-4C79-A102-64FB49B31A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900D9202-0EA0-4C79-A102-64FB49B31A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900D9202-0EA0-4C79-A102-64FB49B31A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900D9202-0EA0-4C79-A102-64FB49B31A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9648F1E-6E45-47EC-BB3B-0ACB7B92FFF4}
+	EndGlobalSection
+EndGlobal
