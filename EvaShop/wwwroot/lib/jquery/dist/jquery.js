@@ -6884,7 +6884,7 @@ jQuery.extend( {
 		"zoom": true
 	},
 
-	// Add in properties whose names you wish to fix before
+	// Add in properties whose names you Eva to fix before
 	// setting or getting the value
 	cssProps: {},
 

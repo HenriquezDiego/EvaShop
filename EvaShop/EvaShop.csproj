@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\avatar.svg" />
+    <None Include="wwwroot\images\magnifying-glass.svg" />
+    <None Include="wwwroot\images\shopping-bag-white.svg" />
+    <None Include="wwwroot\images\shopping-bag.svg" />
+    <None Include="wwwroot\images\star.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.4" />
