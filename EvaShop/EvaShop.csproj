@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="wwwroot\images\avatar.svg" />
     <None Include="wwwroot\images\magnifying-glass.svg" />
     <None Include="wwwroot\images\shopping-bag-white.svg" />
