@@ -6,6 +6,7 @@
         public int ArticuloId { get; set; }
         public Articulo Articulo { get; set; }
         public decimal PrecioUnitario  { get; set; }
-       
+        public decimal Descuento { get; set; }
+
     }
 }
