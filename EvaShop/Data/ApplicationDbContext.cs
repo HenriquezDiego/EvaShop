@@ -32,6 +32,7 @@ namespace EvaShop.Data
             builder.Entity<Inventario>()
                 .Property(d=>d.Costo).HasColumnType("decimal(18, 5)");
             builder.Entity<Descuento>().Property(d=>d.Valor).HasColumnType("decimal(18, 5)");
+            builder.Entity<Estado>().Property(t => t.Id).HasConversion<int>();
 
             base.OnModelCreating(builder);
         }

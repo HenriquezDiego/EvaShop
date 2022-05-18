@@ -8,7 +8,7 @@
         public DateTime Fecha { get; set; }
         public decimal TotalVenta { get; set; }
         public string DireccionDeEnvio { get; set; }
-        public int EstadoId { get; set; }
+        public EstadosIds EstadoId { get; set; }
         public Estado Estado { get; set; }
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
