@@ -23,11 +23,11 @@
 			<div class="logo"><a href="#">Eva</a></div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="#">home</a></li>
-					<li><a href="categories.html">clothes</a></li>
+					<li><a asp-controller="Home" asp-action="Index">home</a></li>
+					<li><a>clothes</a></li>
 					<li><a href="categories.html">accessories</a></li>
 					<li><a href="categories.html">lingerie</a></li>
-					<li><a href="contact.html">contact</a></li>
+					<li><a asp-controller="Contact" asp-action="Index">Contactanos</a></li>
 				</ul>
 			</nav>
 			<div class="header_content ml-auto">
@@ -80,11 +80,11 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="#">home</a></li>
+				<li class="menu_mm"><a asp-controller="Home" asp-action="Index">home</a></li>
 				<li class="menu_mm"><a href="#">clothes</a></li>
 				<li class="menu_mm"><a href="#">accessories</a></li>
 				<li class="menu_mm"><a href="#">lingerie</a></li>
-				<li class="menu_mm"><a href="#">contact</a></li>
+				<li><a asp-controller="Contact" asp-action="Index">Contactanos</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -107,7 +107,7 @@
 							<li><a href="categories.html">clothes</a></li>
 							<li><a href="categories.html">accessories</a></li>
 							<li><a href="categories.html">lingerie</a></li>
-							<li><a href="contact.html">contact</a></li>
+							<li><a asp-controller="Contact" asp-action="Index">Contactanos</a></li>
 						</ul>
 					</nav>
 					<div class="footer_social">
