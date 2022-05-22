@@ -56,7 +56,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("WishListId");
 
-                    b.ToTable("Articulos");
+                    b.ToTable("Articulos", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Categoria", b =>
@@ -73,7 +73,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("Categorias", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Cliente", b =>
@@ -106,7 +106,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Clientes", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Descuento", b =>
@@ -137,7 +137,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("ArticuloId");
 
-                    b.ToTable("Descuentos");
+                    b.ToTable("Descuentos", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Detalle", b =>
@@ -164,7 +164,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("Detalles");
+                    b.ToTable("Detalles", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Estado", b =>
@@ -178,7 +178,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Estados");
+                    b.ToTable("Estados", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Inventario", b =>
@@ -208,7 +208,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("ArticuloId");
 
-                    b.ToTable("Inventarios");
+                    b.ToTable("Inventarios", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.Pedido", b =>
@@ -247,7 +247,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("EstadoId");
 
-                    b.ToTable("Pedidos");
+                    b.ToTable("Pedidos", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.SubCategoria", b =>
@@ -269,7 +269,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("SubCategoria");
+                    b.ToTable("SubCategoria", (string)null);
                 });
 
             modelBuilder.Entity("EvaShop.Models.WishList", b =>
@@ -290,7 +290,7 @@ namespace EvaShop.Data.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("WishList");
+                    b.ToTable("WishList", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
