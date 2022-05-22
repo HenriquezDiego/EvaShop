@@ -4,6 +4,7 @@ using EvaShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EvaShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220522190419_SeederCategoria")]
+    partial class SeederCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +28,7 @@ namespace EvaShop.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CodigoDeBarra")
                         .IsRequired()
@@ -63,98 +64,6 @@ namespace EvaShop.Data.Migrations
                     b.HasIndex("WishListId");
 
                     b.ToTable("Articulos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("53747151-4819-4adc-da14-08da3c25f9c1"),
-                            Descripcion = "Top deportivo doble faz con tecnología seamless de pocas costuras para que sientas más comodidad cuando realices tus entrenamientos. Es una prenda liviana, ligera y muy suave al tacto. Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra para que sientas todo en su lugar mientras realizas tus actividades deportivas",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/top doble faz.jpg",
-                            Nombre = "Top deportivo sin costuras doble faz",
-                            SubCategoriaId = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("6836d141-693c-49ab-da15-08da3c25f9c1"),
-                            Descripcion = "Con este top, te sentirás muy cómoda a la hora de hacer ejercicio gracias a su tecnología de ajuste perfecto sin cortes ni costuras. Te brindará un excelente soporte; su fajón ancho en la base del busto y su buen cubrimiento en escote, sisa y espalda permitirán que tu busto esté siempre en su lugar",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/deportivo crop top.jpg",
-                            Nombre = "Top deportivo estilo crop top sin costuras acanalado de secado rápido",
-                            SubCategoriaId = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("a9a00ad2-f3e3-4bac-da16-08da3c25f9c1"),
-                            Descripcion = "Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra para que sientas todo en su lugar mientras realizas tus actividades deportivas ¡Tu busto lucirá muy natural!",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/top deportivo.jpg",
-                            Nombre = "Top deportivo sin costuras doble faz",
-                            SubCategoriaId = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("15f3f10e-bf0a-4928-da17-08da3c25f9c1"),
-                            Descripcion = "Su tejido de secado rápido te mantendrá fresca todo el tiempo. Además, será doblemente tu favorito, ya que al ser doble faz, tienes dos prendas en una sola. Úsalo para trotar, bailar, montar en bicicleta, ir al gimnasio",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/top celeste.jpg",
-                            Nombre = "Top deportivo sin costuras doble faz",
-                            SubCategoriaId = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("39cd5613-5683-4cea-da18-08da3c25f9c1"),
-                            Descripcion = " Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra para que sientas todo en su lugar mientras realizas tus actividades deportivas",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/top negro.jpg",
-                            Nombre = "Top deportivo sin costuras doble faz",
-                            SubCategoriaId = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("f8ccb148-e1c5-4e99-da19-08da3c25f9c1"),
-                            Descripcion = " Este brasier es la sensualidad hecha prenda, ya que está elaborado completamente en encaje y tul. Cuenta con muy buen soporte gracias a sus arcos internos y con excelente cubrimiento en la espalda.",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/encaje_uno.jpg",
-                            Nombre = "Brasier tipo bralette en encaje y transparencias",
-                            SubCategoriaId = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("5e60f0e9-7aad-4428-da1a-08da3c25f9c1"),
-                            Descripcion = "Brasier de realce alto con copas profundas, ideal para busto mediano y grande. Su diseño es de máximo cubrimiento del busto y de la espalda, haciendo que luzcas perfecta.",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/encaje_dos.jpg",
-                            Nombre = "Brasier balconet de realce alto en encaje con máximo cubrimiento de espalda",
-                            SubCategoriaId = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("3076acf5-dec1-4066-da1b-08da3c25f9c1"),
-                            Descripcion = "¡Tendencias que tienes que probar! Antójate de este espectacular bralette romántico, femenino y ¡muy sexy! en encaje y tul. Sin arcos, abrochaduras, ni estructuras para máxima comodidad, toda la libertad que buscas.",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/encaje_tres.jpg",
-                            Nombre = "Bralette de cuello alto tipo crop top sin estructura",
-                            SubCategoriaId = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("85913343-0ffa-453d-da1c-08da3c25f9c1"),
-                            Descripcion = "Este brasier básico con copas lisas cuenta con delicados toques de encaje en las cargaderas y la base, que le dan un look diferenciado y sofisticado.",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/encaje_cuatro.jpg",
-                            Nombre = "Brasier básico con copas suaves y ligeras Bra sexy essential",
-                            SubCategoriaId = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("86874437-431d-4745-da1d-08da3c25f9c1"),
-                            Descripcion = "No tiene, arco,y sus copas están elaboradas en encaje, para que puedas disfrutar de una modelación totalmente natural. Cuenta con una banda elástica bajo el busto, que te da mayor soporte.",
-                            ForMan = false,
-                            Imagenes = "/imagenes/articulos/encaje_cinco.jpg",
-                            Nombre = "Bralette triangular en tul y encaje elástico en base del busto",
-                            SubCategoriaId = 2
-                        });
                 });
 
             modelBuilder.Entity("EvaShop.Models.Categoria", b =>
@@ -329,98 +238,6 @@ namespace EvaShop.Data.Migrations
                     b.HasIndex("ArticuloId");
 
                     b.ToTable("Inventarios");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ArticuloId = new Guid("53747151-4819-4adc-da14-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 25,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ArticuloId = new Guid("6836d141-693c-49ab-da15-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 20,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ArticuloId = new Guid("a9a00ad2-f3e3-4bac-da16-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 15,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ArticuloId = new Guid("15f3f10e-bf0a-4928-da17-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 10,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ArticuloId = new Guid("39cd5613-5683-4cea-da18-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 23,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ArticuloId = new Guid("f8ccb148-e1c5-4e99-da19-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 45.00m,
-                            Existencias = 23,
-                            PrecioDeVenta = 50m
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ArticuloId = new Guid("5e60f0e9-7aad-4428-da1a-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 19,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ArticuloId = new Guid("3076acf5-dec1-4066-da1b-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 40.00m,
-                            Existencias = 15,
-                            PrecioDeVenta = 45m
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ArticuloId = new Guid("85913343-0ffa-453d-da1c-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 45.00m,
-                            Existencias = 15,
-                            PrecioDeVenta = 50m
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ArticuloId = new Guid("86874437-431d-4745-da1d-08da3c25f9c1"),
-                            CantidadMinima = 3,
-                            Costo = 30.00m,
-                            Existencias = 5,
-                            PrecioDeVenta = 35m
-                        });
                 });
 
             modelBuilder.Entity("EvaShop.Models.Pedido", b =>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EvaShop.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EvaShop.Controllers
 {
@@ -6,7 +7,7 @@ namespace EvaShop.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(new List<Categoria>());
         }
     }
 }
