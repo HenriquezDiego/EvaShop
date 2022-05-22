@@ -7,6 +7,7 @@
         public string Descripcion { get; set; }
         public string Imagenes { get; set; }
         public string CodigoDeBarra { get; set; }
+        public bool ForMan { get; set; }
         public int SubCategoriaId { get; set; }
         public SubCategoria SubCategoria { get; set; }
     }
