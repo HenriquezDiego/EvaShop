@@ -119,7 +119,6 @@ namespace EvaShop.Data
 
      
         
-        //86874437-431D-4745-DA1D-08DA3C25F9C1
         public static readonly List<Articulo> Articulos = new List<Articulo>()
         {
             new Articulo {
