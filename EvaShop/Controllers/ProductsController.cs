@@ -17,12 +17,17 @@ namespace EvaShop.Controllers
             _appDbContext = appDbContext;
             _mapper = mapper;
         }
-        public IActionResult Index()
+        public IActionResult Index(bool? forMan)
         {
             var inventarios = _appDbContext.Inventarios
                 .Include(i=>i.Articulo)
                 .ThenInclude(i=>i.SubCategoria)
-                .ThenInclude(i=>i.Categoria);
+                .ThenInclude(i=>i.Categoria)
+                .ToList();
+
+            if (forMan != null) inventarios = inventarios
+                .Where(i => i.Articulo.ForMan == forMan)
+                .ToList();
 
             var result = _mapper.Map<IEnumerable<InventarioViewModel>>(inventarios);
 
