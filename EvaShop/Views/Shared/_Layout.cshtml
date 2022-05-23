@@ -43,12 +43,14 @@
                 <div class="header_content ml-auto">
                     <div class="shopping">
                         <!-- Cart -->
-                        <a href="#">
+                        <a asp-controller="ShopingCart" asp-action="Index">
                             <div class="cart">
                                 <img src="~/images/shopping-bag.svg" alt="">
                                 <div class="cart_num_container">
                                     <div class="cart_num_inner">
-                                        <div id="cart_num" class="cart_num">@bag</div>
+                                        <div id="cart_num" class="cart_num">
+                                            @bag
+                                        </div>
                                     </div>
                                 </div>
                             </div>
