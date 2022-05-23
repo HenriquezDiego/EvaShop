@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var bag = HttpContextAccessor.HttpContext?.Session.GetString("_Bag");
+    bag = bag?.Split(',').Length.ToString() ?? "0";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -40,7 +48,7 @@
                                 <img src="~/images/shopping-bag.svg" alt="">
                                 <div class="cart_num_container">
                                     <div class="cart_num_inner">
-                                        <div class="cart_num">3</div>
+                                        <div id="cart_num" class="cart_num">@bag</div>
                                     </div>
                                 </div>
                             </div>

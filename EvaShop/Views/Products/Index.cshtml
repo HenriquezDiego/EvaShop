@@ -232,7 +232,9 @@
 												<img src="images/shopping-bag-white.svg" alt="bag">
 											</a>
 										</div>
-										<div class="product_fav product_option">+</div>
+										<div class="product_fav product_option" onclick="addProduct('@item.ArticuloId')">
+											+
+										</div>
 									</div>
 								</div>
 							</div>
@@ -323,4 +325,15 @@
 	<script src="~/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js"></script>
 	<script src="~/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 	<script src="~/js/categories_custom.js"></script>
+	<script type="text/javascript">
+
+		function addProduct(id) {
+
+			fetch(`products/add/${id}`)
+				.then(response => response.json())
+				.then(data => {
+					document.getElementById('cart_num').innerHTML = data;
+				});
+		}
+	</script>
 }

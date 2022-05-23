@@ -8,6 +8,7 @@ namespace EvaShop.Controllers
 {
     public class ProductsController : Controller
     {
+        private const string SessionKeyName = "_Bag";
         private readonly ApplicationDbContext _appDbContext;
         private readonly IMapper _mapper;
 
@@ -32,6 +33,24 @@ namespace EvaShop.Controllers
             var result = _mapper.Map<IEnumerable<InventarioViewModel>>(inventarios);
 
             return View(result);
+        }
+
+        public IActionResult Add(string id)
+        {
+            var bag = HttpContext.Session.GetString(SessionKeyName);
+            if (bag == null)
+            {
+                bag = id;
+                HttpContext.Session.SetString(SessionKeyName,bag);
+            }
+            else
+            {
+                bag = bag + "," + id;
+                HttpContext.Session.SetString(SessionKeyName,bag);   
+            }
+
+            var count = bag.Split(',').Length;
+            return new JsonResult(count);
         }
     }
 }
