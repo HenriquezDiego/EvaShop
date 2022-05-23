@@ -1,6 +1,4 @@
-﻿@using EvaShop.Controllers
-@using Microsoft.Extensions.Logging.Console
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,7 +37,7 @@
                         <!-- Cart -->
                         <a href="#">
                             <div class="cart">
-                                <img src="images/shopping-bag.svg" alt="">
+                                <img src="~/images/shopping-bag.svg" alt="">
                                 <div class="cart_num_container">
                                     <div class="cart_num_inner">
                                         <div class="cart_num">3</div>
@@ -50,7 +48,7 @@
                         <!-- Star -->
                         <a href="#">
                             <div class="star">
-                                <img src="images/star.svg" alt="">
+                                <img src="~/images/star.svg" alt="">
                                 <div class="star_num_container">
                                     <div class="star_num_inner">
                                         <div class="star_num">0</div>
@@ -61,7 +59,7 @@
                         <!-- Avatar -->
                         <a href="#">
                             <div class="avatar">
-                                <img src="images/avatar.svg" alt="">
+                                <img src="~/images/avatar.svg" alt="">
                             </div>
                         </a>
                     </div>
@@ -78,8 +76,8 @@
             <div class="logo menu_mm"><a href="#">Eva</a></div>
             <div class="search">
                 <form action="#">
-                    <input type="search" class="search_input menu_mm" required="required">
-                    <button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
+                    <input type="search" class="search_input menu_mm">
+                    <button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="~/images/magnifying-glass.svg" alt=""></button>
                 </form>
             </div>
             <nav class="menu_nav">
