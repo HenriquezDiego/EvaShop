@@ -24,6 +24,7 @@ namespace EvaShop.Controllers
                 .Include(i=>i.Articulo)
                 .ThenInclude(i=>i.SubCategoria)
                 .ThenInclude(i=>i.Categoria)
+                .Where(i=>i.Existencias > 0)
                 .ToList();
 
             if (forMan != null) inventarios = inventarios
