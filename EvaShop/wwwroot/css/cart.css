@@ -71,8 +71,8 @@ div
 	display: block;
 	position: relative;
 	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 ul
 {
@@ -238,8 +238,8 @@ section
 }
 .parallax-window
 {
-    min-height: 400px;
-    background: transparent;
+	min-height: 400px;
+	background: transparent;
 }
 .nopadding
 {
@@ -786,7 +786,7 @@ section
 .cart_product_price,
 .cart_product_total
 {
-	font-size: 18px;
+	font-size: 12px;
 	font-weight: 600;
 	color: #232323;
 }

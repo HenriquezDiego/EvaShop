@@ -1,5 +1,5 @@
 ﻿@using CatalogoWebApp.Services
-@model IEnumerable<EvaShop.ViewModels.InventarioViewModel>
+@model IEnumerable<EvaShop.ViewModels.ShopingCartViewModel>
 @inject IPathResolver PathResolver 
 @section Header{
 	<link rel="stylesheet" type="text/css" href="~/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css"> 
@@ -57,7 +57,7 @@
 										<!-- Product Quantity -->
 										<div class="product_quantity_container">
 											<div class="product_quantity clearfix">
-												<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+												<input id="quantity_input" type="text" pattern="[0-9]*" value="@item.Cantidad">
 												<div class="quantity_buttons">
 													<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
 													<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
@@ -65,7 +65,7 @@
 											</div>
 										</div>
 										<!-- Products Total Price -->
-										<div class="cart_product_total">@item.PrecioDeVenta</div>
+										<div class="cart_product_total">@item.SubTotal</div>
 										<!-- Product Cart Trash Button -->
 										<div class="cart_product_button">
 											<button class="cart_product_remove"><img src="images/trash.png" alt=""></button>
