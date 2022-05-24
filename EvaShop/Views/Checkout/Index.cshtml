@@ -1,5 +1,4 @@
-﻿@using Microsoft.Build.Framework
-@model IEnumerable<EvaShop.ViewModels.ShopingCartViewModel>
+﻿@model IEnumerable<EvaShop.ViewModels.ShopingCartViewModel>
 @section Header
 {
 
@@ -28,6 +27,7 @@
 									<input type="text" class="checkout_input checkout_input_50" placeholder="Nombre" required="required">
 									<input type="text" class="checkout_input checkout_input_50" placeholder="Apellido" required="required">
 								</div>
+								<input type="text" class="checkout_input" placeholder="Dui" required="required">
 								<input type="text" class="checkout_input" placeholder="E-mail" required="required">
 								<select name="country" id="country" class="country_select checkout_input" disabled>
 									<option>El Salvador</option>
@@ -69,7 +69,7 @@
 								@{ var subtotal = 5m;}
 								@foreach (var item in Model)
 								{
-								    var articulo = item.Articulo.Length > 25 ? item.Articulo[..25]+"..." : item.Articulo;
+									var articulo = item.Articulo.Length > 25 ? item.Articulo[..25]+"..." : item.Articulo;
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">@item.Cantidad/@articulo</div>
 										<div class="cart_total_price ml-auto">$@item.PrecioDeVenta</div>
