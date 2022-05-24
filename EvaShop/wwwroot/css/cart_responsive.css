@@ -332,6 +332,14 @@
 	}
 }
 
+.redirect {
+	color: black !important
+}
+
+.redirect:hover {
+	color: whitesmoke !important
+}
+
 /************
 11. 539px
 ************/
@@ -367,3 +375,4 @@
 {
 	
 }
+

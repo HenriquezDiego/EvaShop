@@ -60,7 +60,7 @@
 						<div class="product_quantity_container">
 							<span>Quantity</span>
 							<div class="product_quantity clearfix">
-								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+								<input id="quantity_input" type="text" pattern="[0-9]*" value="1" maxlength="@Model.Existencias">
 								<div class="quantity_buttons">
 									<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
 									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
@@ -94,7 +94,10 @@
 									</li>
 								</ul>
 							</div>
-							<div class="button cart_button"><a href="#">add to cart</a></div>
+                            <div class="row">
+                                <div class="button cart_button"><a onclick="addProduct('@Model.ArticuloId')">add to cart</a></div>
+                                @*<div class="button cart_button cart_button ml-md-auto"><a onClick="console.log(history);">Regresar</a></div>*@
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -102,3 +105,19 @@
 
 		</div>		
 	</div>
+@section Scripts
+{
+    <script src="~/js/product_custom.js"></script>
+	
+    <script>
+        function addProduct(id) {
+
+            fetch(`/products/add/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cart_num').innerHTML = data;
+                    location.replace("/Products");
+                });
+        }
+    </script>
+}

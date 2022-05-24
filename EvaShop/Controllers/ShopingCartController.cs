@@ -8,6 +8,7 @@ namespace EvaShop.Controllers
 {
     public class ShopingCartController : Controller
     {
+        private const string SessionKeyName = "_Bag";
         private readonly ApplicationDbContext _appDbContext;
         private readonly IMapper _mapper;
 
@@ -43,6 +44,5 @@ namespace EvaShop.Controllers
             HttpContext.Session.SetObject("billing",result);
             return View(result);
         }
-
     }
 }
