@@ -1,76 +1,80 @@
 ﻿@model IEnumerable<EvaShop.ViewModels.ShopingCartViewModel>
 @section Header
-{
+	{
 
 	<link rel="stylesheet" type="text/css" href="~/css/checkout.css">
 	<link rel="stylesheet" type="text/css" href="~/css/checkout_responsive.css">
+	<link rel="stylesheet" type="text/css" href="~/css/card_form.css">
 }
 
 
-@{
+	@{
 	ViewData["Title"] = "Checkout";
 }
 
 
 
 <div class="checkout" style="margin-top: 10%">
-		<div class="container">
-			<div class="row">
+	<div class="container">
+		<div class="row">
 
-				<!-- Billing Details -->
-				<div class="col-lg-6">
-					<div class="billing">
-						<div class="checkout_title">Facturacion</div>
-						<div class="checkout_form_container">
-							<form asp-action="Create" id="checkout_form">
-								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
-									<input name="Nombres" type="text" class="checkout_input checkout_input_50" placeholder="Nombres" required="required">
-									<input name="Apellidos" type="text" class="checkout_input checkout_input_50" placeholder="Apellidos" required="required">
+			<!-- Billing Details -->
+			<div class="col-lg-6">
+				<div class="billing">
+					<div class="checkout_title">Facturacion</div>
+					<div class="checkout_form_container">
+						<form asp-action="Create" id="checkout_form">
+							<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
+								<input name="Nombres" type="text" class="checkout_input checkout_input_50" placeholder="Nombres" required="required">
+								<input name="Apellidos" type="text" class="checkout_input checkout_input_50" placeholder="Apellidos" required="required">
+							</div>
+							<input name="Dui" type="text" class="checkout_input" placeholder="Dui" required="required">
+							<input name="Email" type="text" class="checkout_input" placeholder="E-mail" required="required">
+							<select name="country" id="country" class="country_select checkout_input" disabled>
+								<option>El Salvador</option>
+							</select>
+							<input name="Direccion" type="text" class="checkout_input" placeholder="Dirreccion de envio" required="required">
+							<input type="text" class="checkout_input" placeholder="Ciudad" required="required">
+							<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
+								<input type="text" class="checkout_input checkout_input_50" placeholder="Zipcode">
+								<input name="Telefono" type="text" class="checkout_input checkout_input_50" placeholder="Telefono" required="required">
+							</div>
+							<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="Déjanos saber que opinas de nuestra tienda"></textarea>
+							<div class="billing_options">
+								<div class="billing_account">
+									@*<input name="CrearCuenta" type="checkbox" id="checkbox_account" class="regular_checkbox checkbox_account">
+									<label for="checkbox_account"><img src="images/checked.png" alt=""></label>
+									<span>Crear Cuenta</span>*@
 								</div>
-								<input name="Dui" type="text" class="checkout_input" placeholder="Dui" required="required">
-								<input name="Email" type="text" class="checkout_input" placeholder="E-mail" required="required">
-								<select name="country" id="country" class="country_select checkout_input" disabled>
-									<option>El Salvador</option>
-								</select>
-								<input name="Direccion" type="text" class="checkout_input" placeholder="Dirreccion de envio" required="required">
-								<input type="text" class="checkout_input" placeholder="Ciudad" required="required">
-								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Zipcode">
-									<input name="Telefono" type="text" class="checkout_input checkout_input_50" placeholder="Telefono" required="required">
-								</div>
-								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="Déjanos saber que opinas de nuestra tienda"></textarea>
-								<div class="billing_options">
-									<div class="billing_account">
-										@*<input name="CrearCuenta" type="checkbox" id="checkbox_account" class="regular_checkbox checkbox_account">
-										<label for="checkbox_account"><img src="images/checked.png" alt=""></label>
-										<span>Crear Cuenta</span>*@
-									</div>
 								@*    <div class="billing_shipping">
-										<input type="checkbox" id="checkbox_shipping" name="regular_checkbox" class="regular_checkbox checkbox_shipping">
-										<label for="checkbox_shipping"><img src="images/checked.png" alt=""></label>
-										<span>Ship to a different address</span>
-									</div>*@
-								</div>
-								<button class="cart_total_button">place order</button>
-							</form>
-						</div>
+								<input type="checkbox" id="checkbox_shipping" name="regular_checkbox" class="regular_checkbox checkbox_shipping">
+								<label for="checkbox_shipping"><img src="images/checked.png" alt=""></label>
+								<span>Ship to a different address</span>
+								</div>*@
+							</div>
+							<button class="cart_total_button">place order</button>
+						</form>
 					</div>
 				</div>
+			</div>
 
-				<!-- Cart Details -->
-				<div class="col-lg-6">
-					<div class="cart_details">
-						<div class="checkout_title">Detalle del Pedido</div>
-						<div class="cart_total">
-							<ul>
-								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">Producto</div>
-									<div class="cart_total_price ml-auto">Total</div>
-								</li>
-								@{ var subtotal = 5m;}
+			<!-- Cart Details -->
+			<div class="col-lg-6">
+				<div class="cart_details">
+					<div class="checkout_title">Detalle del Pedido</div>
+					<div class="cart_total">
+						<ul>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="cart_total_title">Producto</div>
+								<div class="cart_total_price ml-auto">Total</div>
+							</li>
+							@if (Model.Any())
+							{
+								var subtotal = 5m;
+								
 								@foreach (var item in Model)
 								{
-									var articulo = item.Articulo.Length > 25 ? item.Articulo[..25]+"..." : item.Articulo;
+									var articulo = item.Articulo.Length > 25 ? item.Articulo[..25] + "..." : item.Articulo;
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">@item.Cantidad/@articulo</div>
 										<div class="cart_total_price ml-auto">$@item.PrecioDeVenta</div>
@@ -78,108 +82,219 @@
 									subtotal += item.PrecioDeVenta * item.Cantidad;
 
 								}
-								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">Shipping</div>
-									<div class="cart_total_price ml-auto">$5.00</div>
-								</li>
-								<li class="d-flex flex-row align-items-start justify-content-start total_row">
-									<div class="cart_total_title">Total</div>
-									<div class="cart_total_price ml-auto">@subtotal</div>
-								</li>
-							</ul>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+							<div class="cart_total_title">Shipping</div>
+							<div class="cart_total_price ml-auto">$5.00</div>
+							</li>
+							<li class="d-flex flex-row align-items-start justify-content-start total_row">
+							<div class="cart_total_title">Total</div>
+							<div class="cart_total_price ml-auto">@subtotal</div>
+							</li>
+							}
+							
+						</ul>
+					</div>
+					<div class="payment_options">
+						<div>
+							<input type="radio" id="radio_payment_1" name="regular_radio" class="regular_radio">
+							<label for="radio_payment_1">cash on delivery</label>
 						</div>
-						<div class="payment_options">
-							<div>
-								<input type="radio" id="radio_payment_1" name="regular_radio" class="regular_radio">
-								<label for="radio_payment_1">cash on delivery</label>
-							</div>
-							<div>
-								<input type="radio" id="radio_payment_2" name="regular_radio" class="regular_radio" checked>
-								<label for="radio_payment_2">paypal</label>
-								<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
-								<div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>
-							</div>
+						<div>
+							<input type="radio" id="radio_payment_2" name="regular_radio" class="regular_radio" checked>
+							<label for="radio_payment_2">paypal</label>
+							<div class="visa payment_option"><a href="#"><img src="~/images/visa.jpg" alt=""></a></div>
+							<div class="master payment_option"><a href="#"><img src="~/images/master.jpg" alt=""></a></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-<div class="newsletter">
-	<div class="newsletter_content">
-		<div class="newsletter_image parallax-window" data-parallax="scroll" data-image-src="images/cart_nl.jpg" data-speed="0.8"></div>
-		<div class="container">
-			<div class="row options">
+</div>
+@*Modal*@
+<div class="modal fade @ViewBag.CardModalClass" style="@ViewBag.CardModalStyle"
+	 id="cardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<!--Card Form -->
+			<div id="app" class="card-form" style="margin-top: 10px">
+				<div class="card-list">
+					<div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
+						<div class="card-item__side -front">
+							<div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }" v-bind:style="focusElementStyle" ref="focusElement"></div>
+							<div class="card-item__cover">
+								<img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+							</div>
 
-				<!-- Options Item -->
-				<div class="col-lg-3">
-					<div class="options_item d-flex flex-row align-items-center justify-content-start">
-						<div class="option_image"><img src="images/option_1.png" alt=""></div>
-						<div class="option_content">
-							<div class="option_title">30 Days Returns</div>
-							<div class="option_subtitle">No questions asked</div>
+							<div class="card-item__wrapper">
+								<div class="card-item__top">
+									<img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" class="card-item__chip">
+									<div class="card-item__type">
+										<transition name="slide-fade-up">
+											<img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" v-bind:key="getCardType" alt="" class="card-item__typeImg">
+										</transition>
+									</div>
+								</div>
+								<label for="cardNumber" class="card-item__number" ref="cardNumber">
+									<template v-if="getCardType === 'amex'">
+										<span v-for="(n, $index) in amexCardMask" :key="$index">
+											<transition name="slide-fade-up">
+												<div class="card-item__numberItem"
+													 v-if="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''">
+													*
+												</div>
+												<div class="card-item__numberItem"
+													 :class="{ '-active' : n.trim() === '' }"
+													 :key="$index" v-else-if="cardNumber.length > $index">
+													{{cardNumber[$index]}}
+												</div>
+												<div class="card-item__numberItem"
+													 :class="{ '-active' : n.trim() === '' }"
+													 v-else
+													 :key="$index + 1">
+													{{n}}
+												</div>
+											</transition>
+										</span>
+									</template>
+
+									<template v-else>
+										<span v-for="(n, $index) in otherCardMask" :key="$index">
+											<transition name="slide-fade-up">
+												<div class="card-item__numberItem"
+													 v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">
+													*
+												</div>
+												<div class="card-item__numberItem"
+													 :class="{ '-active' : n.trim() === '' }"
+													 :key="$index" v-else-if="cardNumber.length > $index">
+													{{cardNumber[$index]}}
+												</div>
+												<div class="card-item__numberItem"
+													 :class="{ '-active' : n.trim() === '' }"
+													 v-else
+													 :key="$index + 1">
+													{{n}}
+												</div>
+											</transition>
+										</span>
+									</template>
+								</label>
+								<div class="card-item__content">
+									<label for="cardName" class="card-item__info" ref="cardName">
+										<div class="card-item__holder">Card Holder</div>
+										<transition name="slide-fade-up">
+											<div class="card-item__name" v-if="cardName.length" key="1">
+												<transition-group name="slide-fade-right">
+													<span class="card-item__nameItem" v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')" v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
+												</transition-group>
+											</div>
+											<div class="card-item__name" v-else key="2">Full Name</div>
+										</transition>
+									</label>
+									<div class="card-item__date" ref="cardDate">
+										<label for="cardMonth" class="card-item__dateTitle">Expires</label>
+										<label for="cardMonth" class="card-item__dateItem">
+											<transition name="slide-fade-up">
+												<span v-if="cardMonth" v-bind:key="cardMonth">{{cardMonth}}</span>
+												<span v-else key="2">MM</span>
+											</transition>
+										</label>
+										/
+										<label for="cardYear" class="card-item__dateItem">
+											<transition name="slide-fade-up">
+												<span v-if="cardYear" v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
+												<span v-else key="2">YY</span>
+											</transition>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card-item__side -back">
+							<div class="card-item__cover">
+								<img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+							</div>
+							<div class="card-item__band"></div>
+							<div class="card-item__cvv">
+								<div class="card-item__cvvTitle">CVV</div>
+								<div class="card-item__cvvBand">
+									<span v-for="(n, $index) in cardCvv" :key="$index">
+										*
+									</span>
+
+								</div>
+								<div class="card-item__type">
+									<img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" class="card-item__typeImg">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Options Item -->
-				<div class="col-lg-3">
-					<div class="options_item d-flex flex-row align-items-center justify-content-start">
-						<div class="option_image"><img src="images/option_2.png" alt=""></div>
-						<div class="option_content">
-							<div class="option_title">Free Delivery</div>
-							<div class="option_subtitle">On all orders</div>
+				<div class="card-form__inner">
+					<div class="card-input">
+						<label for="cardNumber" class="card-input__label">Card Number</label>
+						<input type="text" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask" v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber" autocomplete="off">
+					</div>
+					<div class="card-input">
+						<label for="cardName" class="card-input__label">Card Holders</label>
+						<input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
+					</div>
+					<div class="card-form__row">
+						<div class="card-form__col">
+							<div class="card-form__group">
+								<label for="cardMonth" class="card-input__label">Expiration Date</label>
+								<select class="card-input__input -select" id="cardMonth" v-model="cardMonth" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
+									<option value="" disabled selected>Month</option>
+									<option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12" v-bind:disabled="n < minCardMonth" v-bind:key="n">
+										{{n < 10 ? '0' + n : n}}
+									</option>
+								</select>
+								<select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
+									<option value="" disabled selected>Year</option>
+									<option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">
+										{{$index + minCardYear}}
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="card-form__col -cvv">
+							<div class="card-input">
+								<label for="cardCvv" class="card-input__label">CVV</label>
+								<input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off">
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- Options Item -->
-				<div class="col-lg-3">
-					<div class="options_item d-flex flex-row align-items-center justify-content-start">
-						<div class="option_image"><img src="images/option_3.png" alt=""></div>
-						<div class="option_content">
-							<div class="option_title">Secure Payments</div>
-							<div class="option_subtitle">No need to worry</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Options Item -->
-				<div class="col-lg-3">
-					<div class="options_item d-flex flex-row align-items-center justify-content-start">
-						<div class="option_image"><img src="images/option_4.png" alt=""></div>
-						<div class="option_content">
-							<div class="option_title">24/7 Support</div>
-							<div class="option_subtitle">Just call us</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="row newsletter_row">
-				<div class="col">
-					<div class="section_title_container text-center">
-						<div class="section_subtitle">only the best</div>
-						<div class="section_title">subscribe for a 20% discount</div>
-					</div>
-				</div>
-			</div>
-			<div class="row newsletter_container">
-				<div class="col-lg-10 offset-lg-1">
-					<div class="newsletter_form_container">
-						<form action="#">
-							<input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
-							<button type="submit" class="newsletter_button">subscribe</button>
-						</form>
-					</div>
-					<div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
+					<button class="card-form__button">
+						Submit
+					</button>
+					<button id="close" class="card-form__button" onclick="cancel()">
+						Cancelar
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+@section Bootom {
+	@Html.Raw(ViewBag.Backdrop)
+}
+
 @section Scripts
-{
+	{
 	<script src="~/js/checkout_custom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+	<script src="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js"></script>
+	<script src="~/js/card_form.js"></script>
+	<script>
+		function cancel() {
+			let $modal = document.getElementById('cardModal');
+			$modal.style.display = 'none';
+			$modal.classList.remove('show');
+			$('body').removeClass('modal-open');
+			$('.modal-backdrop').remove();
+		}
+	</script>
 }

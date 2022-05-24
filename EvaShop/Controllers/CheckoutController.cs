@@ -20,6 +20,10 @@ namespace EvaShop.Controllers
         public IActionResult Index()
         {
             var billing = HttpContext.Session.GetIEnumerable<ShopingCartViewModel>("billing");
+            ViewBag.CardModalClass = "";
+            ViewBag.CardModalStyle = "";
+            ViewBag.BodyClass = "";
+            ViewBag.Backdrop = "";
             return View(billing);
         }
 
@@ -45,7 +49,11 @@ namespace EvaShop.Controllers
             pedido.Detellas = detalles.ToList();
             _appDbContext.Pedidos.Add(pedido);
             await _appDbContext.SaveChangesAsync();
-            return Ok();
+            ViewBag.CardModalStyle = "display:block; padding-right:17px";
+            ViewBag.CardModalClass = "show";
+            ViewBag.BodyClass = "modal-open";
+            ViewBag.Backdrop = "<div class='modal-backdrop fade show'></div>";
+            return View("Index",billing);
         }
     }
 }
