@@ -36,20 +36,29 @@ namespace EvaShop.Controllers
             return View(result);
         }
 
-        public IActionResult Add(string id)
+        public IActionResult Add(string id,[FromQuery]int? quantity)
         {
             var bag = HttpContext.Session.GetString(SessionKeyName);
-            if (bag == null)
+
+            if (bag != null)
             {
-                bag = id;
-                HttpContext.Session.SetString(SessionKeyName,bag);
+                bag += "," + id;
             }
             else
             {
-                bag = bag + "," + id;
-                HttpContext.Session.SetString(SessionKeyName,bag);   
+                bag = id;   
             }
 
+            if (quantity != null)
+            {
+                for (var i = 0; i < quantity-1; i++)
+                {
+                    bag += "," + id;
+                }
+
+            }
+
+            HttpContext.Session.SetString(SessionKeyName,bag);
             var count = bag.Split(',').Length;
             return new JsonResult(count);
         }

@@ -94,10 +94,10 @@
 									</li>
 								</ul>
 							</div>
-                            <div class="row">
-                                <div class="button cart_button"><a onclick="addProduct('@Model.ArticuloId')">add to cart</a></div>
-                                @*<div class="button cart_button cart_button ml-md-auto"><a onClick="console.log(history);">Regresar</a></div>*@
-                            </div>
+							<div class="row">
+								<button class="button cart_button" style="cursor: pointer" onclick="addProduct('@Model.ArticuloId')">Agregar</button>
+								@*<div class="button cart_button cart_button ml-md-auto"><a onClick="console.log(history);">Regresar</a></div>*@
+							</div>
 						</div>
 					</div>
 				</div>
@@ -107,17 +107,18 @@
 	</div>
 @section Scripts
 {
-    <script src="~/js/product_custom.js"></script>
-	
-    <script>
-        function addProduct(id) {
+	<script src="~/js/product_custom.js"></script>
 
-            fetch(`/products/add/${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('cart_num').innerHTML = data;
-                    location.replace("/Products");
-                });
-        }
-    </script>
+	<script>
+		function addProduct(id) {
+			const $quantity = document.getElementById('quantity_input');
+			console.log($quantity.value);
+			fetch(`/products/add/${id}?quantity=${$quantity.value}`)
+				.then(response => response.json())
+				.then(data => {
+					document.getElementById('cart_num').innerHTML = data;
+					location.replace("/Products");
+				});
+		}
+	</script>
 }

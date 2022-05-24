@@ -223,7 +223,9 @@
 								<div class="product_image"><img src="@PathResolver.GetUrl(item.ArticuloImagenes)" alt=""></div>
 								<div class="product_content clearfix">
 									<div class="product_info">
-										<div class="product_name"><a href="">@item.Articulo</a></div>
+                                        <div class="product_name">
+                                            <a asp-controller="Product" asp-action="Index" asp-route-id="@item.ArticuloId">@item.Articulo</a>
+                                        </div>
 										<div class="product_price">$@item.PrecioDeVenta</div>
 									</div>
 									<div class="product_options">
