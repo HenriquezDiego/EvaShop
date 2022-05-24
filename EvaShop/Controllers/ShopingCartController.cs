@@ -40,6 +40,7 @@ namespace EvaShop.Controllers
             {
                 item.Cantidad = group.FirstOrDefault(g => g.Key == item.ArticuloId.ToString())?.Count ?? 0;
             }
+            HttpContext.Session.SetObject("billing",result);
             return View(result);
         }
 
