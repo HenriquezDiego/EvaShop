@@ -2,6 +2,7 @@ using CatalogoWebApp.Services;
 using EvaShop.Data;
 using EvaShop.Data.Core;
 using EvaShop.Models.Utils;
+using EvaShop.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,7 +26,9 @@ builder.Services.AddSession(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IPathResolver, PathResolver>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<EmailConfigure>(builder.Configuration.GetSection(nameof(EmailConfigure)));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

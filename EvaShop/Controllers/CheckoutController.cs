@@ -2,8 +2,10 @@
 using EvaShop.Data;
 using EvaShop.Inputs;
 using EvaShop.Models;
+using EvaShop.Services;
 using EvaShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EvaShop.Controllers
 {
@@ -11,12 +13,16 @@ namespace EvaShop.Controllers
     {
         private readonly ApplicationDbContext _appDbContext;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
 
-        public CheckoutController(ApplicationDbContext appDbContext, IMapper mapper)
+        public CheckoutController(ApplicationDbContext appDbContext, 
+            IMapper mapper, IEmailSender emailSender)
         {
             _appDbContext = appDbContext;
             _mapper = mapper;
+            _emailSender = emailSender;
         }
+
         public IActionResult Index()
         {
             var billing = HttpContext.Session.GetIEnumerable<ShopingCartViewModel>("billing");
@@ -42,7 +48,7 @@ namespace EvaShop.Controllers
                 Fecha = new DateTime(),
                 EstadoId = EstadosIds.EnProceso,
                 Numero = new Guid().ToString(),
-                TotalVenta = billing.Sum(b=>b.SubTotal),
+                TotalVenta = billing.Sum(b => b.SubTotal),
                 DireccionDeEnvio = cliente.Direccion
             };
             var detalles = _mapper.Map<IEnumerable<Detalle>>(billing);
@@ -53,7 +59,22 @@ namespace EvaShop.Controllers
             ViewBag.CardModalClass = "show";
             ViewBag.BodyClass = "modal-open";
             ViewBag.Backdrop = "<div class='modal-backdrop fade show'></div>";
-            return View("Index",billing);
+            ViewBag.PedidoId = pedido.Id;
+            return View("Index", billing);
+        }
+
+        public IActionResult Confirm(string pedidoId)
+        {
+            var pedido = _appDbContext.Pedidos
+                .Include(p=>p.Cliente)
+                .FirstOrDefault(p => p.Id.ToString() == pedidoId);
+            if(pedido == null) return NotFound();
+            //_emailSender.Notify("Pedido realizado con exito", pedido.Cliente.Email);
+            pedido.EstadoId = EstadosIds.Facturado;
+            _appDbContext.SaveChanges();
+            HttpContext.Session.Remove("billing");
+            HttpContext.Session.Remove("_Bag");
+            return Ok();
         }
     }
 }

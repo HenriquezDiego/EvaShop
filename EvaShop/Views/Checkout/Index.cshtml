@@ -13,11 +13,9 @@
 }
 
 
-
 <div class="checkout" style="margin-top: 10%">
 	<div class="container">
 		<div class="row">
-
 			<!-- Billing Details -->
 			<div class="col-lg-6">
 				<div class="billing">
@@ -71,7 +69,7 @@
 							@if (Model.Any())
 							{
 								var subtotal = 5m;
-								
+
 								@foreach (var item in Model)
 								{
 									var articulo = item.Articulo.Length > 25 ? item.Articulo[..25] + "..." : item.Articulo;
@@ -82,16 +80,16 @@
 									subtotal += item.PrecioDeVenta * item.Cantidad;
 
 								}
-							<li class="d-flex flex-row align-items-center justify-content-start">
-							<div class="cart_total_title">Shipping</div>
-							<div class="cart_total_price ml-auto">$5.00</div>
-							</li>
-							<li class="d-flex flex-row align-items-start justify-content-start total_row">
-							<div class="cart_total_title">Total</div>
-							<div class="cart_total_price ml-auto">@subtotal</div>
-							</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Shipping</div>
+									<div class="cart_total_price ml-auto">$5.00</div>
+								</li>
+								<li class="d-flex flex-row align-items-start justify-content-start total_row">
+									<div class="cart_total_title">Total</div>
+									<div class="cart_total_price ml-auto">@subtotal</div>
+								</li>
 							}
-							
+
 						</ul>
 					</div>
 					<div class="payment_options">
@@ -266,7 +264,7 @@
 						</div>
 					</div>
 
-					<button class="card-form__button">
+					<button class="card-form__button" onclick="confirm('@ViewBag.PedidoId')">
 						Submit
 					</button>
 					<button id="close" class="card-form__button" onclick="cancel()">
@@ -283,7 +281,7 @@
 }
 
 @section Scripts
-	{
+{
 	<script src="~/js/checkout_custom.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 	<script src="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js"></script>
@@ -295,6 +293,13 @@
 			$modal.classList.remove('show');
 			$('body').removeClass('modal-open');
 			$('.modal-backdrop').remove();
+		}
+
+		function confirm(id) {
+			fetch(`confirm?pedidoId=${id}`)
+				.then(response => response)
+				.then(data => location.replace("/Products"));
+
 		}
 	</script>
 }
