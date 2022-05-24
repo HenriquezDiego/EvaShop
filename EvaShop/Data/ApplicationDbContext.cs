@@ -1,7 +1,6 @@
 ﻿using EvaShop.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 
 namespace EvaShop.Data
 {
@@ -37,6 +36,7 @@ namespace EvaShop.Data
             builder.Entity<Descuento>().Property(d=>d.Valor).HasColumnType("decimal(18, 5)");
             builder.Entity<Estado>().Property(t => t.Id).HasConversion<int>();
             builder.Entity<Articulo>().Property(a => a.CodigoDeBarra).HasDefaultValue("");
+            builder.Entity<Estado>().HasData(DataSeeder.Estados);
             builder.Entity<Categoria>().HasData(DataSeeder.Categorias);
             builder.Entity<SubCategoria>().HasData(DataSeeder.SubCategorias);
             builder.Entity<Articulo>().HasData(DataSeeder.Articulos);

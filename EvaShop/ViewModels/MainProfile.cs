@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EvaShop.Inputs;
 using EvaShop.Models;
 
 namespace EvaShop.ViewModels
@@ -19,6 +20,13 @@ namespace EvaShop.ViewModels
             CreateMap<Inventario, ShopingCartViewModel>()
                 .ForMember(vm => vm.Articulo, opt => opt.MapFrom(src => src.Articulo.Nombre))
                 .ForMember(vm => vm.PrecioDeVenta, opt => opt.MapFrom(src => Math.Round(src.PrecioDeVenta, 2)));
+
+            CreateMap<CheckoutInput, Cliente>();
+
+            CreateMap<ShopingCartViewModel, Detalle>()
+                .ForMember(vm => vm.PrecioUnitario, opt => opt.MapFrom(src => src.PrecioDeVenta))
+                .ForMember(vm=>vm.Id,opt=>opt.Ignore())
+                .ForMember(vm=>vm.Articulo,opt=>opt.Ignore());
         }
     }
 }

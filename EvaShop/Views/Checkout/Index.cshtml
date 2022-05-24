@@ -22,35 +22,36 @@
 					<div class="billing">
 						<div class="checkout_title">Facturacion</div>
 						<div class="checkout_form_container">
-							<form action="#" id="checkout_form">
+							<form asp-action="Create" id="checkout_form">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Nombre" required="required">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Apellido" required="required">
+									<input name="Nombres" type="text" class="checkout_input checkout_input_50" placeholder="Nombres" required="required">
+									<input name="Apellidos" type="text" class="checkout_input checkout_input_50" placeholder="Apellidos" required="required">
 								</div>
-								<input type="text" class="checkout_input" placeholder="Dui" required="required">
-								<input type="text" class="checkout_input" placeholder="E-mail" required="required">
+								<input name="Dui" type="text" class="checkout_input" placeholder="Dui" required="required">
+								<input name="Email" type="text" class="checkout_input" placeholder="E-mail" required="required">
 								<select name="country" id="country" class="country_select checkout_input" disabled>
 									<option>El Salvador</option>
 								</select>
-								<input type="text" class="checkout_input" placeholder="Address" required="required">
+								<input name="Direccion" type="text" class="checkout_input" placeholder="Dirreccion de envio" required="required">
 								<input type="text" class="checkout_input" placeholder="Ciudad" required="required">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
 									<input type="text" class="checkout_input checkout_input_50" placeholder="Zipcode">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Telefono" required="required">
+									<input name="Telefono" type="text" class="checkout_input checkout_input_50" placeholder="Telefono" required="required">
 								</div>
 								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="Déjanos saber que opinas de nuestra tienda"></textarea>
 								<div class="billing_options">
 									<div class="billing_account">
-										<input type="checkbox" id="checkbox_account" name="regular_checkbox" class="regular_checkbox checkbox_account">
+										@*<input name="CrearCuenta" type="checkbox" id="checkbox_account" class="regular_checkbox checkbox_account">
 										<label for="checkbox_account"><img src="images/checked.png" alt=""></label>
-										<span>Create an account</span>
+										<span>Crear Cuenta</span>*@
 									</div>
-									<div class="billing_shipping">
+								@*    <div class="billing_shipping">
 										<input type="checkbox" id="checkbox_shipping" name="regular_checkbox" class="regular_checkbox checkbox_shipping">
 										<label for="checkbox_shipping"><img src="images/checked.png" alt=""></label>
 										<span>Ship to a different address</span>
-									</div>
+									</div>*@
 								</div>
+								<button class="cart_total_button">place order</button>
 							</form>
 						</div>
 					</div>
@@ -98,7 +99,6 @@
 								<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
 								<div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>
 							</div>
-							<button class="cart_total_button">place order</button>
 						</div>
 					</div>
 				</div>

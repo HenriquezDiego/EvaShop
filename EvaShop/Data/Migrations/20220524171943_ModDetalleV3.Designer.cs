@@ -4,6 +4,7 @@ using EvaShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EvaShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220524171943_ModDetalleV3")]
+    partial class ModDetalleV3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,33 +311,6 @@ namespace EvaShop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Estados");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 0,
-                            Nombre = "EnProceso"
-                        },
-                        new
-                        {
-                            Id = 1,
-                            Nombre = "Facturado"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Nombre = "Enviado"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Nombre = "Recibido"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Nombre = "Cancelado"
-                        });
                 });
 
             modelBuilder.Entity("EvaShop.Models.Inventario", b =>
@@ -470,6 +445,7 @@ namespace EvaShop.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DireccionDeEnvio")

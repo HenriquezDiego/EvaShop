@@ -4,6 +4,7 @@ using EvaShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EvaShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220524171829_ModDetalleV2")]
+    partial class ModDetalleV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,12 +275,6 @@ namespace EvaShop.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ArticuloId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Descuento")
                         .HasColumnType("decimal(18,5)");
 
@@ -289,8 +285,6 @@ namespace EvaShop.Data.Migrations
                         .HasColumnType("decimal(18,5)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ArticuloId");
 
                     b.HasIndex("PedidoId");
 
@@ -309,33 +303,6 @@ namespace EvaShop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Estados");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 0,
-                            Nombre = "EnProceso"
-                        },
-                        new
-                        {
-                            Id = 1,
-                            Nombre = "Facturado"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Nombre = "Enviado"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Nombre = "Recibido"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Nombre = "Cancelado"
-                        });
                 });
 
             modelBuilder.Entity("EvaShop.Models.Inventario", b =>
@@ -470,6 +437,7 @@ namespace EvaShop.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DireccionDeEnvio")
@@ -845,17 +813,9 @@ namespace EvaShop.Data.Migrations
 
             modelBuilder.Entity("EvaShop.Models.Detalle", b =>
                 {
-                    b.HasOne("EvaShop.Models.Articulo", "Articulo")
-                        .WithMany()
-                        .HasForeignKey("ArticuloId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EvaShop.Models.Pedido", null)
                         .WithMany("Detellas")
                         .HasForeignKey("PedidoId");
-
-                    b.Navigation("Articulo");
                 });
 
             modelBuilder.Entity("EvaShop.Models.Inventario", b =>

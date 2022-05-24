@@ -4,7 +4,7 @@
     {
         public Guid Id { get; set; }
         public string Numero { get; set; }
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
         public DateTime Fecha { get; set; }
         public decimal TotalVenta { get; set; }
         public string DireccionDeEnvio { get; set; }
