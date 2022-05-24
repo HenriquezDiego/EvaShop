@@ -18,7 +18,7 @@ namespace EvaShop.Controllers
             _appDbContext = appDbContext;
             _mapper = mapper;
         }
-        public IActionResult Index(bool? forMan)
+        public IActionResult Index(bool? forMan,[FromQuery] int? categoriaId)
         {
             var inventarios = _appDbContext.Inventarios
                 .Include(i=>i.Articulo)
@@ -27,11 +27,15 @@ namespace EvaShop.Controllers
                 .Where(i=>i.Existencias > 0)
                 .ToList();
 
+            if(categoriaId != null) inventarios = inventarios.Where(i=>i.Articulo.SubCategoria.Categoria.Id == categoriaId).ToList();
+
             if (forMan != null) inventarios = inventarios
                 .Where(i => i.Articulo.ForMan == forMan)
                 .ToList();
 
             var result = _mapper.Map<IEnumerable<InventarioViewModel>>(inventarios);
+            var categorias = _appDbContext.Categorias.ToList();
+            ViewBag.Categorias = categorias;
 
             return View(result);
         }
