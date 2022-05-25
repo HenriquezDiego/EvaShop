@@ -129,7 +129,7 @@ namespace EvaShop.Data
                 "liviana, ligera y muy suave al tacto. Cuenta con un tejido que bordea los laterales" +
                 " del busto que lo recoge y lo centra para que sientas todo en su lugar mientras realizas" +
                 " tus actividades deportivas",
-                Imagenes="/images/articulos/top doble faz.jpg",
+                Imagenes="/images/articulos/top_doble_faz.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -139,7 +139,7 @@ namespace EvaShop.Data
                 " a su tecnología de ajuste perfecto sin cortes ni costuras. Te brindará un excelente soporte;" +
                 " su fajón ancho en la base del busto y su buen cubrimiento en escote, sisa y espalda permitirán" +
                 " que tu busto esté siempre en su lugar",
-                Imagenes="/images/articulos/deportivo crop top.jpg",
+                Imagenes="/images/articulos/deportivo_crop_top.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -148,7 +148,7 @@ namespace EvaShop.Data
                 Descripcion="Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra para" +
                  " que sientas todo en su lugar mientras realizas tus actividades deportivas ¡Tu busto lucirá muy" +
                  " natural!",
-                Imagenes="/images/articulos/top deportivo.jpg",
+                Imagenes="/images/articulos/top_deportivo.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -157,7 +157,7 @@ namespace EvaShop.Data
                 Descripcion="Su tejido de secado rápido te mantendrá fresca todo el tiempo. Además, será" +
                   " doblemente tu favorito, ya que al ser doble faz, tienes dos prendas en una sola. Úsalo" +
                   " para trotar, bailar, montar en bicicleta, ir al gimnasio",
-                Imagenes="/images/articulos/top celeste.jpg",
+                Imagenes="/images/articulos/top_celeste.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -165,7 +165,7 @@ namespace EvaShop.Data
                 Nombre="Top deportivo sin costuras doble faz",
                 Descripcion=" Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra" +
                    " para que sientas todo en su lugar mientras realizas tus actividades deportivas",
-                Imagenes="/images/articulos/top negro.jpg",
+                Imagenes="/images/articulos/top_negro.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
