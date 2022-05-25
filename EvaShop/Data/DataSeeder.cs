@@ -18,24 +18,28 @@ namespace EvaShop.Data
             {
                 Id = 1,
                 Nombre = "Brasieres",
+                Imagen = "/images/brasiere.jpg",
                 SubCategorias = new List<SubCategoria>()
             },
             new Categoria
             {
                 Id = 2,
                 Nombre = "Panties",
+                Imagen = "/images/pantie.jpg",
                 SubCategorias = new List<SubCategoria>()
             },
             new Categoria
             {
                 Id = 3,
                 Nombre = "Trajes de baño",
+                Imagen = "/images/trajebaño.jpg",
                 SubCategorias = new List<SubCategoria>()
             },
             new Categoria
             {
                 Id = 4,
                 Nombre = "Lenceria",
+                Imagen = "/images/lenceria.jpg",
                 SubCategorias = new List<SubCategoria>()
             }
 
