@@ -150,7 +150,7 @@ $(document).ready(function()
 			var input = $('#quantity_input');
 			var incButton = $('#quantity_inc_button');
 			var decButton = $('#quantity_dec_button');
-			let $input = document.getElementById('quantity_input');
+			const  $input = document.getElementById('quantity_input');
 
 			var originalVal;
 			var endVal;
