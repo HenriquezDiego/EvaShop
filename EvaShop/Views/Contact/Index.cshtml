@@ -1,5 +1,5 @@
 ﻿<link rel="stylesheet" type="text/css" href="~/css/contact.css">
-<link rel="stylesheet" type="text/css" href="~/css/contact_responsive.css.">
+<link rel="stylesheet" type="text/css" href="~/css/contact_responsive.css">
 
 @{
 	ViewData["Title"] = "Contact";
@@ -30,79 +30,82 @@
 
 	<!-- Contact Text -->
 
-	<div class="contact_text">
-		<div class="container">
-			<div class="row">
+<div class="contact_text">
+	<div class="container">
+		<div class="row">
 
-				<!-- Contact Info -->
-				<div class="col-lg-5">
+			<!-- Contact Info -->
+			<div class="col-lg-5">
 
-					<div class="contact_info">
-						<div class="contact_title">contact info</div>
-						<div class="contact_info_content">
-							<ul>
-								<li>
-									<div class="contact_info_icon"><img src="images/contact_info_1.png" alt=""></div>
-									<div class="contact_info_text">Santa ana, sede central</div>
-								</li>
-								<li>
-									<div class="contact_info_icon"><img src="images/contact_info_2.png" alt=""></div>
-									<div class="contact_info_text">Evaunderwear22@gmail.com</div>
-								</li>
-								<li>
-									<div class="contact_info_icon"><img src="images/contact_info_3.png" alt=""></div>
-									<div class="contact_info_text">(503) 7702-3542</div>
-								</li>
-							</ul>
-						</div>
-						<div class="contact_info_social">
-							<ul>
-								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
+				<div class="contact_info">
+					<div class="contact_title">contact info</div>
+					<div class="contact_info_content">
+						<ul>
+							<li>
+								<div class="contact_info_icon"><img src="images/contact_info_1.png" alt=""></div>
+								<div class="contact_info_text">Santa ana, sede central</div>
+							</li>
+							<li>
+								<div class="contact_info_icon"><img src="images/contact_info_2.png" alt=""></div>
+								<div class="contact_info_text">Evaunderwear22@gmail.com</div>
+							</li>
+							<li>
+								<div class="contact_info_icon"><img src="images/contact_info_3.png" alt=""></div>
+								<div class="contact_info_text">(503) 7702-3542</div>
+							</li>
+						</ul>
+					</div>
+					<div class="contact_info_social">
+						<ul>
+							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						</ul>
 					</div>
 				</div>
+			</div>
 
-				<!-- FAQ -->
-				<div class="col-lg-7">
-					<div class="faq">
-						<div class="contact_title">faq</div>
-						<div class="faq_content">
+			<!-- FAQ -->
+			<div class="col-lg-7">
+				<div class="faq">
+					<div class="contact_title">faq</div>
+					<div class="faq_content">
 
-							<!-- Accordions -->
-							<div class="accordions">
+						<!-- Accordions -->
+						<div class="accordions">
 
-								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center"><div>¿Tienen envios a todo el pais?</div></div>
-									<div class="accordion_panel">
-										<p>Contamos con envio a todas las partes de El Salvador.</p>
-									</div>
+							<div class="accordion_container">
+								<div class="accordion d-flex flex-row align-items-center"><div>¿Tienen envios a todo el pais?</div></div>
+								<div class="accordion_panel">
+									<p>Contamos con envio a todas las partes de El Salvador.</p>
 								</div>
+							</div>
 
-								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center"><div>¿Donde se encuentra su sede central?</div></div>
-									<div class="accordion_panel">
-										<p>Nuestra cede Central esta ubicada en Santa Ana.</p>
-									</div>
+							<div class="accordion_container">
+								<div class="accordion d-flex flex-row align-items-center"><div>¿Donde se encuentra su sede central?</div></div>
+								<div class="accordion_panel">
+									<p>Nuestra cede Central esta ubicada en Santa Ana.</p>
 								</div>
+							</div>
 
-								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center active"><div>¿Cual es el precio de envio por pedido?</div></div>
-									<div class="accordion_panel">
-										<p>El precio de envio es de $5.00.</p>
-									</div>
+							<div class="accordion_container">
+								<div class="accordion d-flex flex-row align-items-center active"><div>¿Cual es el precio de envio por pedido?</div></div>
+								<div class="accordion_panel">
+									<p>El precio de envio es de $5.00.</p>
 								</div>
-
 							</div>
 
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+</div>
+@section Scripts
+{
+	<script src="~/js/contact_custom.js"></script>
+}
