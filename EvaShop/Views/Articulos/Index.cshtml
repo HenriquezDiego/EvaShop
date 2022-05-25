@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EvaShop.Models.Articulo>
+
+@section Header{
+    <link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet"/>
+}
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container container-fluid" style="margin-top: 25px">
+    <p class="text-right">
+        <a class="btn btn-primary" asp-action="Create">Agregar</a>
+    </p>
+    <table id="articulos" class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategoria.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ForMan)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategoria.Categoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategoria.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ForMan)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i><span></span></a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-list"></i><span></span></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i><span></span></a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#articulos').DataTable({
+                'columnDefs': [
+                    {
+                        'targets': [4],
+                        'orderable': false
+                    }
+                ]
+            });
+
+            const input = document.getElementsByName("articulos_length");
+            input[0].style.color = "black";
+        });
+
+
+
+
+    </script>
+}

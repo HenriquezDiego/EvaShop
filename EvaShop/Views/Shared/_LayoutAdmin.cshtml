@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - EvaShop</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/plugins/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/css/responsive.css">
+    @await RenderSectionAsync("Header", required: false)
+</head>
+<body class="@ViewBag.BodyClass">
+    <div>
+
+        <!-- Header -->
+
+        <header class="header">
+            <div class="header_inner d-flex flex-row align-items-center justify-content-start">
+                <div class="logo"><img style="width:75px; height:50px" src="~/images/Evalogo.png" alt="logo"></div>
+                <nav class="main_nav">
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Categories" asp-action="Index">Categorias</a></li>
+                        <li><a asp-controller="Products" asp-action="Index" asp-route-forman="false">Mujeres</a></li>
+                        <li><a asp-controller="Products" asp-action="Index" asp-route-forman="true">Hombres</a></li>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index">Contactanos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div>
+            <main>
+                @RenderBody()
+            </main>
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="footer_logo"><a href="#">Eva</a></div>
+                        <div class="footer_social">
+                            <ul>
+                                <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/accounts/login/?next=/evaunderwear22/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/people/Eva-Underweare/100081220613977/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Eva</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap4/popper.js"></script>
+    <script src="~/lib/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    @await RenderSectionAsync("Bootom",required:false)
+</body>
+</html>
