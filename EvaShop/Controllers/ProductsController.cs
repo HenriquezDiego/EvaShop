@@ -44,7 +44,7 @@ namespace EvaShop.Controllers
         {
             var bag = HttpContext.Session.GetString(SessionKeyName);
 
-            if (bag != null)
+            if (!string.IsNullOrEmpty(bag))
             {
                 bag += "," + id;
             }

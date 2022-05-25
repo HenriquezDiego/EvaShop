@@ -57,18 +57,18 @@
 										<!-- Product Quantity -->
 										<div class="product_quantity_container">
 											<div class="product_quantity clearfix">
-												<input id="quantity_input" type="text" pattern="[0-9]*" value="@item.Cantidad" maxlength="@item.Existencias">
-												<div class="quantity_buttons">
+												<input id="quantity_input" type="text" pattern="[0-9]*" value="@item.Cantidad" maxlength="@item.Existencias" disabled>
+												@*<div class="quantity_buttons">
 													<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
 													<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
-												</div>
+												</div>*@
 											</div>
 										</div>
 										<!-- Products Total Price -->
 										<div class="cart_product_total">@item.SubTotal</div>
 										<!-- Product Cart Trash Button -->
 										<div class="cart_product_button">
-											<button class="cart_product_remove"><img src="images/trash.png" alt=""></button>
+											<a class="cart_product_remove" asp-controller="ShopingCart" asp-action="Delete" asp-route-id="@item.ArticuloId"><img src="~/images/trash.png" alt=""></a>
 										</div>
 									</div>
 								</div>

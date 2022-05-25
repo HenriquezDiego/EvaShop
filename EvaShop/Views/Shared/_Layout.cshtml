@@ -4,7 +4,8 @@
 
 @{
     var bag = HttpContextAccessor.HttpContext?.Session.GetString("_Bag");
-    bag = bag?.Split(',').Length.ToString() ?? "0";
+    bag = string.IsNullOrEmpty(bag) ? "0" : bag.Split(',').Length.ToString();
+
 }
 <!DOCTYPE html>
 <html lang="en">
