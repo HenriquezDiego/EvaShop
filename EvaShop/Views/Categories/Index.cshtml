@@ -77,7 +77,7 @@
 						</div>
 						<div class="sorting">
 							<ul class="item_sorting">
-                                <li>
+								<li>
 									<span class="sorting_text">Mostrar</span>
 									<span class="num_sorting_text">12</span>
 									<i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -108,7 +108,9 @@
 								<div class="product_image"><img style="width: 360px;height: 415px" src="@item.Imagen" alt="articulo-@item.Nombre"></div>
 								<div class="product_content clearfix">
 									<div class="product_info">
-										<div class="product_name"><a asp-controller="Products" asp-action="Index">@item.Nombre</a></div>
+										<div class="product_name">
+											<a asp-controller="Products" asp-action="Index" asp-route-categoriaId="@item.Id">@item.Nombre</a>
+										</div>
 									</div>
 								</div>
 							</div>
