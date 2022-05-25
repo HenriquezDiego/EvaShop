@@ -129,7 +129,7 @@ namespace EvaShop.Data
                 "liviana, ligera y muy suave al tacto. Cuenta con un tejido que bordea los laterales" +
                 " del busto que lo recoge y lo centra para que sientas todo en su lugar mientras realizas" +
                 " tus actividades deportivas",
-                Imagenes="/imagenes/articulos/top doble faz.jpg",
+                Imagenes="/images/articulos/top doble faz.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -139,7 +139,7 @@ namespace EvaShop.Data
                 " a su tecnología de ajuste perfecto sin cortes ni costuras. Te brindará un excelente soporte;" +
                 " su fajón ancho en la base del busto y su buen cubrimiento en escote, sisa y espalda permitirán" +
                 " que tu busto esté siempre en su lugar",
-                Imagenes="/imagenes/articulos/deportivo crop top.jpg",
+                Imagenes="/images/articulos/deportivo crop top.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -148,7 +148,7 @@ namespace EvaShop.Data
                 Descripcion="Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra para" +
                  " que sientas todo en su lugar mientras realizas tus actividades deportivas ¡Tu busto lucirá muy" +
                  " natural!",
-                Imagenes="/imagenes/articulos/top deportivo.jpg",
+                Imagenes="/images/articulos/top deportivo.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -157,7 +157,7 @@ namespace EvaShop.Data
                 Descripcion="Su tejido de secado rápido te mantendrá fresca todo el tiempo. Además, será" +
                   " doblemente tu favorito, ya que al ser doble faz, tienes dos prendas en una sola. Úsalo" +
                   " para trotar, bailar, montar en bicicleta, ir al gimnasio",
-                Imagenes="/imagenes/articulos/top celeste.jpg",
+                Imagenes="/images/articulos/top celeste.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -165,7 +165,7 @@ namespace EvaShop.Data
                 Nombre="Top deportivo sin costuras doble faz",
                 Descripcion=" Cuenta con un tejido que bordea los laterales del busto que lo recoge y lo centra" +
                    " para que sientas todo en su lugar mientras realizas tus actividades deportivas",
-                Imagenes="/imagenes/articulos/top negro.jpg",
+                Imagenes="/images/articulos/top negro.jpg",
                 SubCategoriaId= 1
             },
             new Articulo {
@@ -174,7 +174,7 @@ namespace EvaShop.Data
                 Descripcion=" Este brasier es la sensualidad hecha prenda, ya que está elaborado completamente en" +
                      " encaje y tul. Cuenta con muy buen soporte gracias a sus arcos internos y con excelente " +
                      "cubrimiento en la espalda.",
-                Imagenes="/imagenes/articulos/encaje_uno.jpg",
+                Imagenes="/images/articulos/encaje_uno.jpg",
                 SubCategoriaId= 2
             },
             new Articulo {
@@ -182,7 +182,7 @@ namespace EvaShop.Data
                 Nombre="Brasier balconet de realce alto en encaje con máximo cubrimiento de espalda",
                 Descripcion="Brasier de realce alto con copas profundas, ideal para busto mediano y grande." +
                 " Su diseño es de máximo cubrimiento del busto y de la espalda, haciendo que luzcas perfecta.",
-                Imagenes="/imagenes/articulos/encaje_dos.jpg",
+                Imagenes="/images/articulos/encaje_dos.jpg",
                 SubCategoriaId= 2
             },
             new Articulo {
@@ -191,7 +191,7 @@ namespace EvaShop.Data
                  Descripcion="¡Tendencias que tienes que probar! Antójate de este espectacular bralette romántico," +
                  " femenino y ¡muy sexy! en encaje y tul. Sin arcos, abrochaduras, ni estructuras para máxima comodidad," +
                  " toda la libertad que buscas.",
-                 Imagenes="/imagenes/articulos/encaje_tres.jpg",
+                 Imagenes="/images/articulos/encaje_tres.jpg",
                  SubCategoriaId= 2
             },
             new Articulo {
@@ -199,7 +199,7 @@ namespace EvaShop.Data
                  Nombre="Brasier básico con copas suaves y ligeras Bra sexy essential",
                  Descripcion="Este brasier básico con copas lisas cuenta con delicados toques de encaje en las cargaderas y" +
                  " la base, que le dan un look diferenciado y sofisticado.",
-                 Imagenes="/imagenes/articulos/encaje_cuatro.jpg",
+                 Imagenes="/images/articulos/encaje_cuatro.jpg",
                  SubCategoriaId= 2
             },
             new Articulo {
@@ -207,7 +207,7 @@ namespace EvaShop.Data
                  Nombre="Bralette triangular en tul y encaje elástico en base del busto",
                  Descripcion="No tiene, arco,y sus copas están elaboradas en encaje, para que puedas disfrutar de una" +
                  " modelación totalmente natural. Cuenta con una banda elástica bajo el busto, que te da mayor soporte.",
-                 Imagenes="/imagenes/articulos/encaje_cinco.jpg",
+                 Imagenes="/images/articulos/encaje_cinco.jpg",
                  SubCategoriaId= 2
             }
         };
