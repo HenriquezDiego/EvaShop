@@ -69,7 +69,10 @@ namespace EvaShop.Controllers
                 .Include(p=>p.Cliente)
                 .FirstOrDefault(p => p.Id.ToString() == pedidoId);
             if(pedido == null) return NotFound();
-            //_emailSender.Notify("Pedido realizado con exito", pedido.Cliente.Email);
+            var billing = HttpContext.Session.GetIEnumerable<ShopingCartViewModel>("billing");
+            if(billing == null) return NotFound();
+            var msg = MessagesFormatter.Factura("Compra",billing);
+            _emailSender.Notify(msg, pedido.Cliente.Email);
             pedido.EstadoId = EstadosIds.Facturado;
             _appDbContext.SaveChanges();
             HttpContext.Session.Remove("billing");
