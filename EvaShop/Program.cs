@@ -27,6 +27,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IPathResolver, PathResolver>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddTransient<IFileService, FileService>();
 builder.Services.Configure<EmailConfigure>(builder.Configuration.GetSection(nameof(EmailConfigure)));
 
 var app = builder.Build();

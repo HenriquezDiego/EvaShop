@@ -27,6 +27,9 @@ namespace EvaShop.ViewModels
                 .ForMember(vm => vm.PrecioUnitario, opt => opt.MapFrom(src => src.PrecioDeVenta))
                 .ForMember(vm=>vm.Id,opt=>opt.Ignore())
                 .ForMember(vm=>vm.Articulo,opt=>opt.Ignore());
+
+            CreateMap<ArticuloInput, Articulo>()
+                .ForMember(src=>src.Id,opt=>opt.Ignore());
         }
     }
 }

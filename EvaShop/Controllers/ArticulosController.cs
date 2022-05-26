@@ -1,6 +1,8 @@
-﻿using EvaShop.Data;
+﻿using AutoMapper;
+using EvaShop.Data;
 using EvaShop.Inputs;
 using EvaShop.Models;
+using EvaShop.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +12,16 @@ namespace EvaShop.Controllers
     public class ArticulosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IFileService _fileService;
+        private readonly IMapper _mapper;
 
-        public ArticulosController(ApplicationDbContext context)
+        public ArticulosController(ApplicationDbContext context, 
+            IFileService fileService,
+            IMapper mapper)
         {
             _context = context;
+            _fileService = fileService;
+            _mapper = mapper;
         }
 
         // GET: Articulos
@@ -47,7 +55,7 @@ namespace EvaShop.Controllers
         // GET: Articulos/Create
         public IActionResult Create()
         {
-            ViewData["SubCategoriaId"] = new SelectList(_context.Set<SubCategoria>(), "Id", "Id");
+            ViewData["SubCategoriaId"] = new SelectList(_context.Set<SubCategoria>(), "Id", "Nombre");
             return View();
         }
 
@@ -56,33 +64,31 @@ namespace EvaShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ArticuloInput articulo)
+        public async Task<IActionResult> Create(ArticuloInput model)
         {
             if (ModelState.IsValid)
             {
-                articulo.Id = Guid.NewGuid();
+                var articulo = _mapper.Map<Articulo>(model);
+                if (string.IsNullOrEmpty(articulo.Imagenes))
+                {
+                    articulo.Imagenes = await _fileService.Upload(model.Imagen, model.Nombre);
+                }
                 _context.Add(articulo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubCategoriaId"] = new SelectList(_context.Set<SubCategoria>(), "Id", "Id", articulo.SubCategoriaId);
-            return View(articulo);
+            ViewData["SubCategoriaId"] = new SelectList(_context.Set<SubCategoria>(), "Id", "Nombre", model.Nombre);
+            return View(model);
         }
 
         // GET: Articulos/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
+            if (id == null) return NotFound();
+            
             var articulo = await _context.Articulos.FindAsync(id);
-            if (articulo == null)
-            {
-                return NotFound();
-            }
-            ViewData["SubCategoriaId"] = new SelectList(_context.Set<SubCategoria>(), "Id", "Id", articulo.SubCategoriaId);
+            if (articulo == null)   return NotFound();
+            ViewData["SubCategoriaId"] = new SelectList(_context.Set<SubCategoria>(), "Id", "Nombre", articulo.Nombre);
             return View(articulo);
         }
 
