@@ -30,6 +30,9 @@ namespace EvaShop.ViewModels
 
             CreateMap<ArticuloInput, Articulo>()
                 .ForMember(src=>src.Id,opt=>opt.Ignore());
+
+            CreateMap<InventarioInput, Inventario>()
+                .ForMember(src=>src.Id,opt=>opt.Ignore());
         }
     }
 }
