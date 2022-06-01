@@ -69,7 +69,7 @@
                         </a>
                         <!-- Avatar -->
                         <a href="#">
-                            <div class="avatar">
+                            <div class="avatar" type="button" data-toggle="modal" data-target="#exampleModal">
                                 <img src="~/images/avatar.svg" alt="">
                             </div>
                         </a>
@@ -140,8 +140,30 @@
             </div>
         </footer>
     </div>
+    
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background: transparent;border: transparent">
+            <div class="modal-body">
+                <div class="login">
+                    <div class="login-triangle"></div>
+
+                    <h2 class="login-header">Log in</h2>
+
+                    <form asp-controller="Manager" asp-action="Login" role="form" method="post" class="login-container">
+                        <p><input name="user" type="text" placeholder="User"></p>
+                        <p><input name="password" type="password" placeholder="Password"></p>
+                        <p><input type="submit" value="Log in"></p>
+                        <p><input type="submit" value="Close" data-dismiss="modal"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap4/popper.js"></script>
     <script src="~/lib/bootstrap4/bootstrap.min.js"></script>
     <script src="~/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>

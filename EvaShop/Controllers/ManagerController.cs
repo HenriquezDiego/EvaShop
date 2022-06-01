@@ -1,0 +1,33 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace CatalogoWebApp.Controllers
+{
+    public class ManagerController : Controller
+    {
+        private const string SessionKeyName = "_Name";
+        private const string Error = "_Error";
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(string user, string password)
+        {
+            if (user == "Admin" && password == "Catolica10")
+            {
+                HttpContext.Session.SetString(SessionKeyName, "Admin");
+                return Redirect("/Inventarios");
+            }
+            HttpContext.Session.SetString(Error,"Usuario o contraseña incorrecta");
+            return Redirect("/Home");
+
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove(SessionKeyName);
+            HttpContext.Session.Remove(Error);
+            return Redirect("/Home");
+
+        }
+    }
+}
