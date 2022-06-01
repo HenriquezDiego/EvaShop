@@ -10,46 +10,43 @@
 <div>
     <h4>Articulo</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Imagenes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imagenes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodigoDeBarra)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodigoDeBarra)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ForMan)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ForMan)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubCategoria)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubCategoria.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+                <div class="text-center" style="margin-bottom: 45px">
+                    <img class="img-thumbnail" style="width: 225px;height: 275px" src="@Model.Imagenes" alt="articulo"/>
+                </div>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ForMan)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ForMan)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SubCategoria)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SubCategoria.Nombre)
+                </dd>
+            </dl>
+            <div class="text-center">
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+                <a class="btn btn-primary" asp-action="Index">Regresar</a>
+            </div>
+
+        </div>
+    </div>
 </div>
