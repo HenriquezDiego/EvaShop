@@ -41,6 +41,13 @@ namespace EvaShop.Data
                 Nombre = "Lenceria",
                 Imagen = "/images/lenceria.jpg",
                 SubCategorias = new List<SubCategoria>()
+            },
+             new Categoria
+            {
+                Id = 5,
+                Nombre = "Hombre",
+                Imagen = "/images/hombre.jpeg",
+                SubCategorias = new List<SubCategoria>()
             }
 
         };
@@ -118,6 +125,24 @@ namespace EvaShop.Data
                 Id = 12,
                 Nombre = "Body Doll",
                 CategoriaId = 4
+            },
+            new SubCategoria
+            {
+                Id = 13,
+                Nombre = "Boxer",
+                CategoriaId = 5
+            },
+            new SubCategoria
+            {
+                Id = 14,
+                Nombre = "Calcetines",
+                CategoriaId = 5
+            },
+            new SubCategoria
+            {
+                Id = 15,
+                Nombre = "Bañadores",
+                CategoriaId = 5
             }
         };
 
