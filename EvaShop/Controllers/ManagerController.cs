@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EvaShop.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CatalogoWebApp.Controllers
 {
     public class ManagerController : Controller
     {
+        private readonly IEmailSender _emailSender;
         private const string SessionKeyName = "_Name";
         private const string Error = "_Error";
 
+        public ManagerController(IEmailSender emailSender)
+        {
+            _emailSender = emailSender;
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -29,5 +35,15 @@ namespace CatalogoWebApp.Controllers
             return Redirect("/Home");
 
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Newsletter(string email)
+        {
+            const string msg = "<h1 style='text-align: center'>Felicidades tienes un descuento del 20%<h1>";
+            return Redirect(_emailSender.Notify(msg, email) ? "/Home" : "/Contact");
+        }
+
+        //GET IN TOUCH
     }
 }
