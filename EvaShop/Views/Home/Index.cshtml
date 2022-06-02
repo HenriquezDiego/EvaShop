@@ -339,7 +339,7 @@
 				<div class="row newsletter_container">
 					<div class="col-lg-10 offset-lg-1">
 						<div class="newsletter_form_container">
-							<form action="#">
+							<form asp-controller="Manager" asp-action="Newsletter" method="post">
 								<input name="email" type="email" class="newsletter_input" required="required" placeholder="E-mail here">
 								<button type="submit" class="newsletter_button">subscribe</button>
 							</form>

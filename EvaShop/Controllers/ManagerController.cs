@@ -50,7 +50,7 @@ namespace CatalogoWebApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult GetInTouch(string name,string email, string subject, string body)
         {
-            var msg = email + "</br>" + body; 
+            var msg = email + ": " + body; 
             return Redirect(_emailSender.Notify(msg,_emailSender.GetEmail(),subject) ? "/Home" : "/Contact");
         }
     }
