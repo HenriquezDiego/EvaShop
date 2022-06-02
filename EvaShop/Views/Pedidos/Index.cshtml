@@ -1,0 +1,89 @@
+﻿@model IEnumerable<EvaShop.Models.Pedido>
+@section Header{
+    <link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet"/>
+}
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container container-fluid" style="margin-top: 75px">
+<table id="pedidos" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalVenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DireccionDeEnvio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionDeEnvio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nombres)
+            </td>
+            <td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i><span></span></a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-list"></i><span></span></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i><span></span></a>
+                </td>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</div>
+@section Scripts {
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#pedidos').DataTable({
+                'columnDefs': [
+                    {
+                        'targets': [4],
+                        'orderable': false
+                    }
+                ]
+            });
+
+            const input = document.getElementsByName("pedidos_length");
+            input[0].style.color = "black";
+        });
+    </script>
+}
