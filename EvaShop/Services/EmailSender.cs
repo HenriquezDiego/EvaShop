@@ -60,5 +60,10 @@ namespace EvaShop.Services
                 return false;
             }
         }
+
+        public string GetEmail()
+        {
+            return _configuration.User;
+        }
     }
 }

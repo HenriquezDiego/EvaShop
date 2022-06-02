@@ -45,5 +45,13 @@ namespace CatalogoWebApp.Controllers
         }
 
         //GET IN TOUCH
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult GetInTouch(string name,string email, string subject, string body)
+        {
+            var msg = email + "</br>" + body; 
+            return Redirect(_emailSender.Notify(msg,_emailSender.GetEmail(),subject) ? "/Home" : "/Contact");
+        }
     }
 }
